@@ -10,9 +10,9 @@ def index():
 @app.route("/emotionDetector")
 def emotionDetector():
     query = request.args.get("textToAnalyze")
-    
-    result = emotion_detection.emotion_detector(text_to_analyze)
-    return {"responseText": result}
+    result = emotion_detector(query)
+    return result
 
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
 
-app.run(host="0.0.0.0", port=5000)
